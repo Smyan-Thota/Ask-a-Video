@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Learning Assistant",
+  "version": "0.1",
+  "description": "Chrome extension that transcribes YouTube videos and provides a Q&A chat using AI.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.openai.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/watch*"],
+      "js": ["contentScript.js"],
+      "css": ["contentStyles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html"
+}
